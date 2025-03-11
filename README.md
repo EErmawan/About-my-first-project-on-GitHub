@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Harian Kehadiran Siswa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 style="color: green;">Sekolah Menengah Kejuruan Negeri</h1>
+    <h2>Absensi Harian Kehadiran Siswa</h2>
+    <form id="form-absensi">
+        <label for="nama">Nama:</label> 
+        <input type="text" id="nama" name="nama" required<br><br>
+        
+        <label for="kelas">Kelas:</label>
+        <select id="kelas" name="kelas" required>
+            <option value="" disabled selected>Pilih Kelas</option>
+            <option value="X ATPH">X ATPH</option>
+            <option value="X AKL">X AKL</option>
+            <option value="X DKV">X DKV</option>
+            <option value="XI ATPH">XI ATPH</option>
+            <option value="XI AKL">XI AKL</option>
+            <option value="XI DKV">XI DKV</option>
+            <option value="XII ATPH">XII ATPH</option>
+            <option value="XII AKL">XII AKL</option>
+            <option value="XII DKV">XII DKV</option>
+        </select><br><br>
+        
+        <label>Status:</label><br>
+        <div class="radio-group">
+            <label class="radio-container">Hadir
+                <input type="radio" name="status" value="Hadir" required>
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Sakit
+                <input type="radio" name="status" value="Sakit">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Izin
+                <input type="radio" name="status" value="Izin">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Alpa
+                <input type="radio" name="status" value="Alpa">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <br><br>
+        
+        <button type="submit" id="btn-absensi">Simpan</button>
+    </form>
+    <div id="list-absensi"></div>
+
+    <script src="script.js"></script>
+    <style>
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+        .radio-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .radio-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+            margin-right: 5px;
+            display: inline-block;
+            position: relative;
+        }
+        .radio-container input:checked ~ .checkmark {
+            background-color: #4CAF50;
+        }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .radio-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .radio-container .checkmark:after {
+            top: 7px;
+            left: 7px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: white;
+        }
+    </style>
+</body>
+</html>
